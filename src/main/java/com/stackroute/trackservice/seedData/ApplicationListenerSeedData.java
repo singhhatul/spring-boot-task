@@ -9,12 +9,12 @@ import org.springframework.stereotype.Component;
 
     //this class implements Application Listener Interface
     @Component
-    public class ApplicationListen implements ApplicationListener<ContextRefreshedEvent> {
+    public class ApplicationListenerSeedData implements ApplicationListener<ContextRefreshedEvent> {
     private TrackRepository trackRepository;
 
     //contructor of class ApplicationListen
     @Autowired
-    public ApplicationListen(TrackRepository trackRepository) {
+    public ApplicationListenerSeedData(TrackRepository trackRepository) {
         this.trackRepository = trackRepository;
     }
 
@@ -22,7 +22,7 @@ import org.springframework.stereotype.Component;
         // to database runtime
     @Override
     public void onApplicationEvent(ContextRefreshedEvent contextRefreshedEvent) {
-        System.out.println("Context Event Received");
+        System.out.println("Application Event running");
         Track track1 = new Track(24, "atul", "singh");
         Track track2 = new Track(25, "pushkar", "shankar");
         Track track3 = new Track(26, "samresh", "maiti");

@@ -65,5 +65,11 @@ public class TrackController {
         Track track1 = trackService.updateTrackById(track, id);
         return new ResponseEntity < > (track1, HttpStatus.OK);
     }
+    //Using getMappiing to get the data  by Name through Postman
+    @GetMapping("tracks/{name}")
+    public ResponseEntity<?> getTrackByName(@PathVariable("name") String name){
+        return new ResponseEntity<>(trackService.getTrackByName(name),HttpStatus.OK);
+    }
+
 
 }

@@ -23,6 +23,6 @@ public interface TrackService {
     public List<Track> getAllTracks();
     public Track deleteTrackById(int id);
     public Track updateTrackById(Track track,int id);
-    public List<Track> getTrackByName();
+    public List<Track> getTrackByName(String name);
 
 }

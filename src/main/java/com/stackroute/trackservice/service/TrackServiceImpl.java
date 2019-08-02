@@ -55,9 +55,9 @@ public class TrackServiceImpl implements TrackService {
         trackRepository.deleteById(id);
         return trackRepository.save(track);
     }
-
+    //implementation  of getTrackByName method
     @Override
-    public List<Track> getTrackByName() {
-        return null;
+    public List<Track> getTrackByName(String name) {
+        return trackRepository.getTrackByName(name);
     }
 }

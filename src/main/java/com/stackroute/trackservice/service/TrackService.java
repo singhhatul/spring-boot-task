@@ -16,6 +16,7 @@ public interface TrackService {
     // 3. getAllTracks(); find all the tracks
     // 4. deleteTrackById(int id); delete track by ID
     // 5. updateTrackById(Track track,int id); updates the track
+    // 6. getTrackByName(); get all the tracks by name
 
     public Track save(Track track) throws TrackAlreadyExistsException;
     public Track getTrackById(int id) throws TrackNotFoundException;

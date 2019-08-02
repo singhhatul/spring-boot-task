@@ -10,6 +10,6 @@ public interface TrackService {
     public Track getTrackById(int id);
     public List<Track> getAllTracks();
     public Track deleteTrackById(int id);
-    public Track updateTrackById(int id);
+    public Track updateTrackById(Track track,int id);
 
 }

@@ -21,24 +21,27 @@ public class TrackServiceImpl implements TrackService {
         Track savedTrack=trackRepository.save(track);
         return savedTrack;
     }
-    //implementation  of saveTrack() method
+    //implementation  of getTrackById() method
     @Override
     public Track getTrackById(int id) {
         Track retrievedTrack=trackRepository.findById(id).get();
         return retrievedTrack;
     }
 
+    //implementation  of getAllTracks() method
     @Override
     public List<Track> getAllTracks() {
         return trackRepository.findAll();
     }
 
+    //implementation  of deleteTrackById() method
     @Override
     public Track deleteTrackById(int id) {
         Optional <Track> optionalTrack = trackRepository.findById(id);
         trackRepository.deleteById(id);
         return optionalTrack.get();
     }
+    //implementation  of updateTrackByID() method
     @Override
     public Track updateTrackById(Track track, int id) {
         trackRepository.deleteById(id);

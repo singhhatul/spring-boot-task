@@ -1,6 +1,8 @@
 package com.stackroute.trackservice.controller;
 
 import com.stackroute.trackservice.domain.Track;
+import com.stackroute.trackservice.exceptions.TrackAlreadyExistsException;
+import com.stackroute.trackservice.exceptions.TrackNotFoundException;
 import com.stackroute.trackservice.service.TrackService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -25,16 +27,24 @@ public class TrackController {
 
     //Using PostMapping to save the data through Postman
     @PostMapping("track")
-    public ResponseEntity<?> saveUser(@RequestBody Track track) {
-        Track savedTrack = trackService.save(track);
-        return new ResponseEntity<>(savedTrack, HttpStatus.OK);
+    public ResponseEntity<?> saveTrack(@RequestBody Track track) {
+        try {
+            Track savedTrack = trackService.save(track);
+            return new ResponseEntity<>(savedTrack, HttpStatus.OK);
+        }catch (TrackAlreadyExistsException ex){
+            return new ResponseEntity<>(ex.getMessage(), HttpStatus.CONFLICT);
+        }
     }
 
     //Using GetMapping to get the data  by ID through Postman
     @GetMapping("track/{id}")
     public ResponseEntity<?> getTrackById(@PathVariable int id) {
-        Track retrivedTrack = trackService.getTrackById(id);
-        return new ResponseEntity<Track>(retrivedTrack, HttpStatus.OK);
+        try {
+            Track retrivedTrack = trackService.getTrackById(id);
+            return new ResponseEntity<>(retrivedTrack, HttpStatus.OK);
+        }catch (TrackNotFoundException ex){
+            return new ResponseEntity<>(ex.getMessage(),HttpStatus.CONFLICT);
+        }
     }
 
     //Using GetMapping to get the data through Postman

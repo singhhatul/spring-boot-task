@@ -24,7 +24,7 @@ public class TrackController {
     }
     @Autowired
 
-    public TrackController(@Qualifier("Dummy") TrackService trackService) {
+    public TrackController(@Qualifier("TrackServiceImpl") TrackService trackService) {
         this.trackService = trackService;
     }
 

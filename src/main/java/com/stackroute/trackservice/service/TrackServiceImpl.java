@@ -5,12 +5,14 @@ import com.stackroute.trackservice.exceptions.TrackAlreadyExistsException;
 import com.stackroute.trackservice.exceptions.TrackNotFoundException;
 import com.stackroute.trackservice.repository.TrackRepository;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
+@Profile("prod")
 @Service
 @Qualifier("TrackServiceImpl")
 public class TrackServiceImpl implements TrackService {

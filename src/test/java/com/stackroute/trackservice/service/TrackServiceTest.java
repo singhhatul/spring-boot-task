@@ -15,7 +15,7 @@ import static org.mockito.Mockito.*;
 public class TrackServiceTest {
     Track track;
     //Create a mock for TrackRepository
-    @Mock
+   @Mock
     TrackRepository trackRepository;
     //Inject the mocks as dependencies into TrackServiceImpl
     @InjectMocks

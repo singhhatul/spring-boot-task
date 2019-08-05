@@ -6,10 +6,11 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+
 
 import org.springframework.data.mongodb.core.mapping.Document;
+
+import javax.persistence.Id;
 
 @Data
 @AllArgsConstructor

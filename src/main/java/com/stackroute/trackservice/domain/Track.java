@@ -9,11 +9,13 @@ import lombok.ToString;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
+import org.springframework.data.mongodb.core.mapping.Document;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-@Entity
+@Document
 public class Track {
     //variable Declaration
     @Id

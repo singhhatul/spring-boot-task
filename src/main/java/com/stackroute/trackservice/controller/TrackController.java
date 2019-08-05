@@ -20,11 +20,9 @@ public class TrackController {
 
     private TrackService trackService;
 
-    public TrackController() {
-    }
-    @Autowired
 
-    public TrackController(@Qualifier("TrackServiceImpl") TrackService trackService) {
+    @Autowired
+    public TrackController( TrackService trackService) {
         this.trackService = trackService;
     }
 

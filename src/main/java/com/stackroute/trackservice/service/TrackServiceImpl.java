@@ -12,9 +12,9 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 
-@Profile("prod")
+//@Profile("prod")
 @Service
-@Qualifier("TrackServiceImpl")
+//@Qualifier("TrackServiceImpl")
 public class TrackServiceImpl implements TrackService {
     private TrackRepository trackRepository;
 
@@ -63,6 +63,6 @@ public class TrackServiceImpl implements TrackService {
     //implementation  of getTrackByName method
     @Override
     public List<Track> getTrackByName(String name) {
-        return trackRepository.getTrackByName(name);
+        return (List<Track>) trackRepository.getTrackByName(name);
     }
 }

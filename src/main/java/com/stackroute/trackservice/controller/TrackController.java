@@ -29,8 +29,9 @@ public class TrackController {
     //Using PostMapping to save the data through Postman
     @PostMapping("track")
     public ResponseEntity<?> saveTrack(@RequestBody Track track) throws TrackAlreadyExistsException {
+        //ResponseEntity responseEntity;
             Track savedTrack = trackService.save(track);
-            return new ResponseEntity<>(savedTrack, HttpStatus.OK);
+            return new ResponseEntity<>(savedTrack, HttpStatus.CREATED);
     }
 
     //Using GetMapping to get the data  by ID through Postman
@@ -61,7 +62,7 @@ public class TrackController {
         return new ResponseEntity < > (track1, HttpStatus.OK);
     }
     //Using getMappiing to get the data  by Name through Postman
-    @GetMapping("tracks/{name}")
+    @GetMapping("track/{name}")
     public ResponseEntity<?> getTrackByName(@PathVariable("name") String name){
         return new ResponseEntity<>(trackService.getTrackByName(name),HttpStatus.OK);
     }

@@ -43,14 +43,13 @@ public class TrackServiceTest {
 
     @Test(expected = TrackAlreadyExistsException.class)
     public void saveTrackTestFailure() throws TrackAlreadyExistsException {
-        when(trackRepository.save((Track)any())).thenReturn(null);
-        Track savedTrack = trackService.save(track);
-        System.out.println("savedTrack" + savedTrack);
+        when(trackRepository.save(track)).thenReturn(null);
+        Track saveTrack = trackService.save(track);
+        Assert.assertEquals(track, saveTrack);
     }
 
     @Test
     public void getAllTrack(){
-
         trackRepository.save(track);
         //stubbing the mock to return specific data
         when(trackRepository.findAll()).thenReturn(list);

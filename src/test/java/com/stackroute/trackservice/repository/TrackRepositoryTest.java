@@ -40,7 +40,6 @@ public class TrackRepositoryTest {
     public void testSavetrack(){
         trackRepository.save(track);
         Track fetchtrack = trackRepository.findById(track.getId()).get();
-        System.out.println(fetchtrack);
         Assert.assertEquals(1,fetchtrack.getId());
 
     }

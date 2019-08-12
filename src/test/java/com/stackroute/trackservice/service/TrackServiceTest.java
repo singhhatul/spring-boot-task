@@ -32,6 +32,12 @@ public class TrackServiceTest {
         list = new ArrayList<>();
         list.add(track);
     }
+    
+    @After
+    public void tearDown(){
+        this.track=null;
+        this.list=null;
+    }
     @Test
     public void saveTrackSuccess() throws TrackAlreadyExistsException {
         when(trackRepository.save((Track)any())).thenReturn(track);

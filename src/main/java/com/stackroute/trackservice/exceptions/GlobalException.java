@@ -16,10 +16,18 @@ public class GlobalException
         extends ResponseEntityExceptionHandler {
 
     @ExceptionHandler(value
-            = {TrackAlreadyExistsException.class, TrackNotFoundException.class})
+            = {TrackAlreadyExistsException.class})
     protected ResponseEntity<Object> handleConflict(
             Exception ex, WebRequest request) {
         String bodyOfResponse = null;
-        return new ResponseEntity<>(ex.getMessage(),HttpStatus.NOT_ACCEPTABLE);
+        return new ResponseEntity<>(ex.getMessage(),HttpStatus.CONFLICT);
+    }
+ 
+ @ExceptionHandler(value
+            = {TrackNotFoundException.class})
+    protected ResponseEntity<Object> handleConflict(
+            Exception ex, WebRequest request) {
+        String bodyOfResponse = null;
+        return new ResponseEntity<>(ex.getMessage(),HttpStatus.NOT_FOUND);
     }
 }

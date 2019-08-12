@@ -53,6 +53,10 @@ public class TrackControllerTest {
 
         list.add(track);
     }
+    @After
+    public void tearDown(){
+        this.track=null;
+    }
 
     @Test
     public void saveTrack() throws Exception {

@@ -31,7 +31,7 @@ public class TrackController {
     public ResponseEntity<?> saveTrack(@RequestBody Track track) throws TrackAlreadyExistsException {
         //ResponseEntity responseEntity;
             Track savedTrack = trackService.save(track);
-            return new ResponseEntity<>(savedTrack, HttpStatus.CREATED);
+            return new ResponseEntity<>(savedTrack, HttpStatus.OK);
     }
 
     //Using GetMapping to get the data  by ID through Postman
